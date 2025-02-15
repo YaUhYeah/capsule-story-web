@@ -1,0 +1,370 @@
+.releases-main {
+    max-width: 1200px;
+    margin: 80px auto 0;
+    padding: 2rem;
+}
+
+.releases-container {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.releases-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.new-release-btn {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--admin-secondary);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.new-release-btn:hover {
+    background-color: #2980b9;
+}
+
+/* Release Grid */
+.releases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.platform-section h3 {
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--admin-secondary);
+}
+
+/* Release List */
+.release-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.release-item {
+    background: var(--admin-light);
+    border-radius: 8px;
+    padding: 1.5rem;
+    position: relative;
+}
+
+.release-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.release-version {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--admin-dark);
+}
+
+.release-type {
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.release-type.stable {
+    background-color: var(--admin-success);
+    color: white;
+}
+
+.release-type.beta {
+    background-color: var(--admin-warning);
+    color: var(--admin-dark);
+}
+
+.release-type.alpha {
+    background-color: var(--admin-danger);
+    color: white;
+}
+
+.release-info {
+    margin-bottom: 1rem;
+}
+
+.release-date {
+    color: var(--admin-gray);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.release-notes {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.release-stats {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.stat-icon {
+    width: 16px;
+    height: 16px;
+    opacity: 0.7;
+}
+
+.release-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.release-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.download-btn {
+    background-color: var(--admin-secondary);
+    color: white;
+}
+
+.download-btn:hover {
+    background-color: #2980b9;
+}
+
+.edit-btn {
+    background-color: var(--admin-warning);
+    color: var(--admin-dark);
+}
+
+.edit-btn:hover {
+    background-color: #f39c12;
+}
+
+.delete-btn {
+    background-color: var(--admin-danger);
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Release Modal */
+.release-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-content h2 {
+    margin-bottom: 2rem;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-group select,
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.95rem;
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+/* File Upload */
+.file-upload {
+    border: 2px dashed #ddd;
+    padding: 1.5rem;
+    border-radius: 5px;
+    text-align: center;
+    transition: border-color 0.3s ease;
+}
+
+.file-upload:hover {
+    border-color: var(--admin-secondary);
+}
+
+.upload-progress {
+    margin-top: 1rem;
+}
+
+.progress-bar {
+    height: 8px;
+    background: #eee;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.progress {
+    height: 100%;
+    background: var(--admin-secondary);
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    font-size: 0.9rem;
+    color: var(--admin-gray);
+}
+
+/* Checksum Display */
+.checksum-group {
+    background: var(--admin-light);
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.checksum-item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.checksum-item:last-child {
+    margin-bottom: 0;
+}
+
+.checksum-label {
+    font-weight: bold;
+    min-width: 80px;
+}
+
+.checksum-value {
+    font-family: monospace;
+    word-break: break-all;
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.submit-btn,
+.cancel-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn {
+    background-color: var(--admin-secondary);
+    color: white;
+    flex: 2;
+}
+
+.submit-btn:hover {
+    background-color: #2980b9;
+}
+
+.cancel-btn {
+    background-color: var(--admin-gray);
+    color: white;
+    flex: 1;
+}
+
+.cancel-btn:hover {
+    background-color: #7f8c8d;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .releases-main {
+        padding: 1rem;
+    }
+
+    .releases-header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .new-release-btn {
+        width: 100%;
+    }
+
+    .release-actions {
+        flex-direction: column;
+    }
+
+    .release-btn {
+        width: 100%;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .submit-btn,
+    .cancel-btn {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .release-stats {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .modal-content {
+        padding: 1rem;
+    }
+}

@@ -1,0 +1,248 @@
+.wiki-main {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 80px auto 0;
+    padding: 2rem;
+}
+
+/* Wiki Sidebar */
+.wiki-sidebar {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+    position: sticky;
+    top: 100px;
+}
+
+.wiki-search {
+    margin-bottom: 1.5rem;
+}
+
+.wiki-search input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+.wiki-nav h3 {
+    color: var(--primary-color);
+    margin: 1.5rem 0 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+.wiki-nav ul {
+    list-style: none;
+    padding-left: 0.5rem;
+}
+
+.wiki-nav li {
+    margin: 0.5rem 0;
+}
+
+.wiki-nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.wiki-nav a:hover {
+    color: var(--secondary-color);
+}
+
+/* Wiki Content */
+.wiki-content {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.wiki-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--light-bg);
+}
+
+.wiki-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.wiki-actions button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.edit-btn {
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
+
+.edit-btn:hover {
+    background-color: #2980b9;
+}
+
+.history-btn {
+    background-color: var(--light-bg);
+    color: var(--text-color);
+}
+
+.history-btn:hover {
+    background-color: #e2e2e2;
+}
+
+/* Wiki Article */
+.wiki-article {
+    line-height: 1.8;
+}
+
+.wiki-article section {
+    margin-bottom: 3rem;
+}
+
+.wiki-article h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--light-bg);
+}
+
+.wiki-article h3 {
+    color: var(--secondary-color);
+    margin: 1.5rem 0 1rem;
+}
+
+.wiki-article p {
+    margin-bottom: 1rem;
+}
+
+.wiki-article ul, .wiki-article ol {
+    margin: 1rem 0;
+    padding-left: 2rem;
+}
+
+.wiki-article li {
+    margin: 0.5rem 0;
+}
+
+/* Mechanics Grid */
+.mechanics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.mechanic-card {
+    background: var(--light-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.mechanic-card:hover {
+    transform: translateY(-5px);
+}
+
+.mechanic-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+/* Wiki Footer */
+.wiki-footer {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 2px solid var(--light-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.page-info {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.page-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.page-actions button {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: var(--white);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.page-actions button:hover {
+    background: var(--light-bg);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .wiki-main {
+        grid-template-columns: 250px 1fr;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .wiki-main {
+        grid-template-columns: 1fr;
+    }
+
+    .wiki-sidebar {
+        position: static;
+        margin-bottom: 2rem;
+    }
+
+    .mechanics-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .wiki-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    .wiki-actions {
+        width: 100%;
+    }
+
+    .wiki-actions button {
+        flex: 1;
+    }
+
+    .wiki-footer {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .page-info {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}

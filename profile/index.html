@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capsule Story - User Profile</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="nav-container">
+            <div class="logo">
+                <h1>Capsule Story Profile</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../forum/index.html">Forums</a></li>
+                <li><a href="../wiki/index.html">Wiki</a></li>
+                <li><a href="#logout" class="logout-btn">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="profile-main">
+        <div class="profile-container">
+            <aside class="profile-sidebar">
+                <div class="profile-card">
+                    <div class="profile-avatar">
+                        <img src="../images/default-avatar.png" alt="User Avatar" id="userAvatar">
+                        <button class="change-avatar-btn">Change Avatar</button>
+                    </div>
+                    <div class="profile-info">
+                        <h2 id="username">Username</h2>
+                        <span class="user-rank">Rank: <span id="userRank">Adventurer</span></span>
+                        <span class="join-date">Joined: <span id="joinDate">January 2024</span></span>
+                    </div>
+                </div>
+
+                <nav class="profile-nav">
+                    <ul>
+                        <li><a href="#overview" class="active">Overview</a></li>
+                        <li><a href="#game-progress">Game Progress</a></li>
+                        <li><a href="#achievements">Achievements</a></li>
+                        <li><a href="#inventory">Inventory</a></li>
+                        <li><a href="#settings">Settings</a></li>
+                    </ul>
+                </nav>
+
+                <div class="profile-stats">
+                    <h3>Statistics</h3>
+                    <ul>
+                        <li>Forum Posts: <span id="forumPosts">0</span></li>
+                        <li>Wiki Edits: <span id="wikiEdits">0</span></li>
+                        <li>Reputation: <span id="reputation">0</span></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <div class="profile-content">
+                <section id="overview" class="profile-section active">
+                    <h2>Profile Overview</h2>
+                    <div class="overview-grid">
+                        <div class="overview-card recent-activity">
+                            <h3>Recent Activity</h3>
+                            <ul class="activity-list">
+                                <!-- Will be populated dynamically -->
+                            </ul>
+                        </div>
+
+                        <div class="overview-card achievements">
+                            <h3>Recent Achievements</h3>
+                            <div class="achievement-grid">
+                                <!-- Will be populated dynamically -->
+                            </div>
+                        </div>
+
+                        <div class="overview-card game-stats">
+                            <h3>Game Statistics</h3>
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <span class="stat-label">Play Time</span>
+                                    <span class="stat-value" id="playTime">0 hours</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Monsters Tamed</span>
+                                    <span class="stat-value" id="monstersTamed">0</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Items Crafted</span>
+                                    <span class="stat-value" id="itemsCrafted">0</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Structures Built</span>
+                                    <span class="stat-value" id="structuresBuilt">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="game-progress" class="profile-section">
+                    <h2>Game Progress</h2>
+                    <div class="progress-grid">
+                        <div class="progress-card">
+                            <h3>Monster Collection</h3>
+                            <div class="collection-progress">
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 0%"></div>
+                                </div>
+                                <span class="progress-text">0/150 Monsters</span>
+                            </div>
+                            <div class="monster-grid">
+                                <!-- Will be populated dynamically -->
+                            </div>
+                        </div>
+
+                        <div class="progress-card">
+                            <h3>Crafting Mastery</h3>
+                            <div class="crafting-progress">
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 0%"></div>
+                                </div>
+                                <span class="progress-text">0/100 Recipes</span>
+                            </div>
+                            <div class="recipe-grid">
+                                <!-- Will be populated dynamically -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="achievements" class="profile-section">
+                    <h2>Achievements</h2>
+                    <div class="achievements-grid">
+                        <!-- Will be populated dynamically -->
+                    </div>
+                </section>
+
+                <section id="inventory" class="profile-section">
+                    <h2>Game Inventory</h2>
+                    <div class="inventory-grid">
+                        <!-- Will be populated dynamically -->
+                    </div>
+                </section>
+
+                <section id="settings" class="profile-section">
+                    <h2>Profile Settings</h2>
+                    <form id="profileSettingsForm" class="settings-form">
+                        <div class="form-group">
+                            <h3>Account Information</h3>
+                            <div class="form-row">
+                                <label for="displayName">Display Name</label>
+                                <input type="text" id="displayName" name="displayName">
+                            </div>
+                            <div class="form-row">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <h3>Privacy Settings</h3>
+                            <div class="form-row checkbox">
+                                <input type="checkbox" id="showOnline" name="showOnline">
+                                <label for="showOnline">Show Online Status</label>
+                            </div>
+                            <div class="form-row checkbox">
+                                <input type="checkbox" id="showProgress" name="showProgress">
+                                <label for="showProgress">Show Game Progress</label>
+                            </div>
+                            <div class="form-row checkbox">
+                                <input type="checkbox" id="showInventory" name="showInventory">
+                                <label for="showInventory">Show Inventory</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <h3>Notification Settings</h3>
+                            <div class="form-row checkbox">
+                                <input type="checkbox" id="emailNotif" name="emailNotif">
+                                <label for="emailNotif">Email Notifications</label>
+                            </div>
+                            <div class="form-row checkbox">
+                                <input type="checkbox" id="forumNotif" name="forumNotif">
+                                <label for="forumNotif">Forum Notifications</label>
+                            </div>
+                            <div class="form-row checkbox">
+                                <input type="checkbox" id="achievementNotif" name="achievementNotif">
+                                <label for="achievementNotif">Achievement Notifications</label>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="save-btn">Save Changes</button>
+                            <button type="button" class="cancel-btn">Cancel</button>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Capsule Story Profile</h3>
+                <p>Manage your game progress and community participation</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../forum/index.html">Forums</a></li>
+                    <li><a href="../wiki/index.html">Wiki</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#help">Help Center</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Capsule Story. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="profile.js"></script>
+</body>
+</html>

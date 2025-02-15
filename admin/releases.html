@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capsule Story - Release Management</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="releases.css">
+</head>
+<body>
+    <header class="admin-header">
+        <nav class="nav-container">
+            <div class="logo">
+                <h1>Release Management</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="../index.html">View Site</a></li>
+                <li><a href="#logout" class="logout-btn">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="releases-main">
+        <div class="releases-container">
+            <div class="releases-header">
+                <h2>Game Releases</h2>
+                <button class="new-release-btn">New Release</button>
+            </div>
+
+            <div class="releases-grid">
+                <div class="platform-section">
+                    <h3>Android Releases</h3>
+                    <div class="release-list" id="androidReleases">
+                        <!-- Will be populated dynamically -->
+                    </div>
+                </div>
+
+                <div class="platform-section">
+                    <h3>Desktop Releases</h3>
+                    <div class="release-list" id="desktopReleases">
+                        <!-- Will be populated dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- New Release Modal -->
+        <div class="modal release-modal" id="releaseModal" style="display: none;">
+            <div class="modal-content">
+                <h2>New Release</h2>
+                <form id="releaseForm">
+                    <div class="form-group">
+                        <label for="platform">Platform</label>
+                        <select id="platform" name="platform" required>
+                            <option value="">Select Platform</option>
+                            <option value="android">Android</option>
+                            <option value="desktop">Desktop</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="version">Version Number</label>
+                        <input type="text" id="version" name="version" 
+                               placeholder="e.g., 1.0.0" required 
+                               pattern="^\d+\.\d+\.\d+$">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="releaseType">Release Type</label>
+                        <select id="releaseType" name="releaseType" required>
+                            <option value="stable">Stable</option>
+                            <option value="beta">Beta</option>
+                            <option value="alpha">Alpha</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="releaseNotes">Release Notes</label>
+                        <textarea id="releaseNotes" name="releaseNotes" 
+                                  placeholder="Describe what's new in this release..." 
+                                  required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gameFile">Game File</label>
+                        <div class="file-upload">
+                            <input type="file" id="gameFile" name="gameFile" 
+                                   accept=".apk,.jar" required>
+                            <div class="upload-progress" style="display: none;">
+                                <div class="progress-bar">
+                                    <div class="progress"></div>
+                                </div>
+                                <span class="progress-text">0%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group checksum-group">
+                        <label>File Checksums</label>
+                        <div class="checksum-item">
+                            <span class="checksum-label">MD5:</span>
+                            <span class="checksum-value" id="md5Checksum">-</span>
+                        </div>
+                        <div class="checksum-item">
+                            <span class="checksum-label">SHA-256:</span>
+                            <span class="checksum-value" id="sha256Checksum">-</span>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="submit-btn">Publish Release</button>
+                        <button type="button" class="cancel-btn">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/main.js"></script>
+    <script src="releases.js"></script>
+</body>
+</html>

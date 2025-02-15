@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capsule Story - Admin Panel</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <header class="admin-header">
+        <nav class="nav-container">
+            <div class="logo">
+                <h1>Admin Panel</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">View Site</a></li>
+                <li><a href="#profile" class="profile-btn">Admin Profile</a></li>
+                <li><a href="#logout" class="logout-btn">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="admin-layout">
+        <aside class="admin-sidebar">
+            <nav class="admin-nav">
+                <div class="nav-section">
+                    <h3>Content Management</h3>
+                    <ul>
+                        <li><a href="#dashboard" class="active">Dashboard</a></li>
+                        <li><a href="#game-releases">Game Releases</a></li>
+                        <li><a href="#wiki-management">Wiki Management</a></li>
+                        <li><a href="#forum-management">Forum Management</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3>User Management</h3>
+                    <ul>
+                        <li><a href="#users">Users</a></li>
+                        <li><a href="#roles">Roles & Permissions</a></li>
+                        <li><a href="#moderators">Moderators</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3>System</h3>
+                    <ul>
+                        <li><a href="#settings">Site Settings</a></li>
+                        <li><a href="#security">Security</a></li>
+                        <li><a href="#logs">System Logs</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="admin-main">
+            <div class="dashboard-header">
+                <h2>Admin Dashboard</h2>
+                <div class="quick-actions">
+                    <button class="action-btn">New Release</button>
+                    <button class="action-btn">Moderate Forum</button>
+                    <button class="action-btn">System Status</button>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-card stats">
+                    <h3>Site Statistics</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-value">1,234</span>
+                            <span class="stat-label">Total Users</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">456</span>
+                            <span class="stat-label">Active Today</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">789</span>
+                            <span class="stat-label">Forum Posts</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">5,678</span>
+                            <span class="stat-label">Downloads</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-card recent-activity">
+                    <h3>Recent Activity</h3>
+                    <ul class="activity-list">
+                        <li class="activity-item">
+                            <span class="activity-type forum">Forum Post</span>
+                            <span class="activity-content">New discussion: "Game Balance Updates"</span>
+                            <span class="activity-time">5 minutes ago</span>
+                        </li>
+                        <li class="activity-item">
+                            <span class="activity-type user">User</span>
+                            <span class="activity-content">New user registration: Player123</span>
+                            <span class="activity-time">15 minutes ago</span>
+                        </li>
+                        <li class="activity-item">
+                            <span class="activity-type wiki">Wiki Edit</span>
+                            <span class="activity-content">Page edited: "Crafting Guide"</span>
+                            <span class="activity-time">1 hour ago</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="dashboard-card system-status">
+                    <h3>System Status</h3>
+                    <div class="status-grid">
+                        <div class="status-item">
+                            <span class="status-label">Server Load</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 45%"></div>
+                            </div>
+                            <span class="status-value">45%</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label">Storage</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 72%"></div>
+                            </div>
+                            <span class="status-value">72%</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label">Memory Usage</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 60%"></div>
+                            </div>
+                            <span class="status-value">60%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-card pending-actions">
+                    <h3>Pending Actions</h3>
+                    <div class="action-list">
+                        <div class="action-item">
+                            <span class="action-priority high">High</span>
+                            <span class="action-content">5 reported forum posts require review</span>
+                            <button class="review-btn">Review</button>
+                        </div>
+                        <div class="action-item">
+                            <span class="action-priority medium">Medium</span>
+                            <span class="action-content">3 new moderator applications</span>
+                            <button class="review-btn">Review</button>
+                        </div>
+                        <div class="action-item">
+                            <span class="action-priority low">Low</span>
+                            <span class="action-content">Wiki page suggestions pending</span>
+                            <button class="review-btn">Review</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
