@@ -29,13 +29,9 @@ async def root():
 @app.get("/health")
 async def health_check():
     return {"status": "healthy"}
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
     allow_methods=["*"],
-    allow_headers=["*"],
-)
+    allow_headers=["*"]
+
 
 # Create directories if they don't exist
 os.makedirs("static", exist_ok=True)
