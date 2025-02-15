@@ -106,7 +106,7 @@ function showLoginModal() {
     form.addEventListener('submit', handleLogin);
   
     document.getElementById('discordLoginBtn').addEventListener('click', function () {
-      window.location.href = '/api/discord/login';
+      window.location.href = '/api/auth/discord/login';
     });
   }
   
