@@ -14,14 +14,3 @@ RestartSec=5
 
 [Install]
 WantedBy=multi-user.target
-
-[Service]
-User=capsule
-Group=capsule
-WorkingDirectory=/home/capsule/capsulestory
-Environment="PATH=/home/capsule/capsulestory/venv/bin"
-ExecStart=/home/capsule/capsulestory/venv/bin/uvicorn api.main:app --host 0.0.0.0 --port 8000
-Restart=always
-
-[Install]
-WantedBy=multi-user.target
