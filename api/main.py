@@ -29,10 +29,6 @@ async def root():
 @app.get("/health")
 async def health_check():
     return {"status": "healthy"}
-    allow_methods=["*"],
-    allow_headers=["*"]
-
-
 # Create directories if they don't exist
 os.makedirs("static", exist_ok=True)
 os.makedirs("uploads", exist_ok=True)
