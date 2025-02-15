@@ -1,11 +1,12 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-import os
+
+from api.routers import auth, discord_auth, releases  # import your routers
 
 app = FastAPI(title="Capsule Story API")
 
-# CORS middleware
+# Add CORS middleware, static file mounts, etc.
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -13,14 +14,13 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-# Create directories if they don't exist
-os.makedirs("static", exist_ok=True)
-os.makedirs("uploads", exist_ok=True)
-
-# Mount static files
 app.mount("/static", StaticFiles(directory="static"), name="static")
 app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
+
+# Mount routers with prefixes
+app.include_router(auth.router, prefix="/api/auth")
+app.include_router(discord_auth.router, prefix="/api/auth")  # mounts endpoints at /api/auth/discord/login etc.
+app.include_router(releases.router, prefix="/api/releases")
 
 @app.get("/")
 async def root():
