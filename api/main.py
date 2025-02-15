@@ -29,13 +29,6 @@ async def root():
 @app.get("/health")
 async def health_check():
     return {"status": "healthy"}
-from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
-import os
-
-app = FastAPI(title="Capsule Story API")
-
-# CORS middleware
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
