@@ -73,62 +73,79 @@ function showLoginPrompt() {
     `;
     document.body.appendChild(modal);
 }
-
+// Improved login modal implementation
 function showLoginModal() {
+    // Remove any existing login modal
+    closeModal();
+  
     const modal = document.createElement('div');
     modal.className = 'login-modal';
     modal.innerHTML = `
-        <div class="modal-content">
-            <h2>Login</h2>
-            <form id="loginForm">
-                <input type="text" placeholder="Username" required>
-                <input type="password" placeholder="Password" required>
-                <button type="submit">Login</button>
-            </form>
-            <p>Don't have an account? <a href="/register">Register</a></p>
-            <button onclick="closeModal()">Close</button>
-        </div>
+      <div class="modal-content">
+        <h2>Login</h2>
+        <form id="loginForm">
+          <div class="form-group">
+            <input type="text" name="username" placeholder="Username" required />
+          </div>
+          <div class="form-group">
+            <input type="password" name="password" placeholder="Password" required />
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="submit-btn">Login</button>
+            <button type="button" class="cancel-btn" onclick="closeModal()">Cancel</button>
+          </div>
+        </form>
+        <p>Don't have an account? <a href="register.html">Register here</a></p>
+        <p>Or login with <button id="discordLoginBtn" class="social-btn">Discord</button></p>
+      </div>
     `;
     document.body.appendChild(modal);
-
-    const form = modal.querySelector('#loginForm');
+  
+    // Attach event listeners
+    const form = document.getElementById('loginForm');
     form.addEventListener('submit', handleLogin);
-}
-
-function closeModal() {
-    const modal = document.querySelector('.login-modal');
-    if (modal) {
-        modal.remove();
+  
+    document.getElementById('discordLoginBtn').addEventListener('click', function () {
+      window.location.href = '/api/discord/login';
+    });
+  }
+  
+  function closeModal() {
+    const existingModal = document.querySelector('.login-modal');
+    if (existingModal) {
+      existingModal.remove();
     }
-}
-
-async function handleLogin(e) {
+  }
+  
+  async function handleLogin(e) {
     e.preventDefault();
     const form = e.target;
-    const username = form.querySelector('input[type="text"]').value;
-    const password = form.querySelector('input[type="password"]').value;
-
+    const username = form.username.value;
+    const password = form.password.value;
+  
     try {
-        const response = await fetch('/api/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ username, password }),
-        });
-
-        if (response.ok) {
-            const data = await response.json();
-            localStorage.setItem('user_token', data.token);
-            closeModal();
-            window.location.reload();
-        } else {
-            throw new Error('Login failed');
-        }
+      const response = await fetch('/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ username, password })
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
+        localStorage.setItem('user_token', data.access_token);
+        closeModal();
+        window.location.href = '/profile'; // redirect to profile after login
+      } else {
+        const errorData = await response.json();
+        alert(`Login failed: ${errorData.detail}`);
+      }
     } catch (error) {
-        alert('Login failed. Please try again.');
+      alert('Login failed. Please try again.');
     }
-}
+  }
+  
 
 // Version check and update notification
 async function checkForUpdates() {
